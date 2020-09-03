@@ -32,7 +32,7 @@ const char* lab3_sequential_threads()
 DWORD WINAPI thread_a(LPVOID param) {
 
 	UNREFERENCED_PARAMETER(param);//j правилу мы должны передавать какой-то параметр в поток,но пользоваться этим не будем ,так что отвязываем 
-	for (int i = 0; i < 3; i++) {
+	for (int i = 0; i < 4; i++) {
 		WaitForSingleObject(MutexLock, INFINITE);
 		cout << 'a' << flush;
 		ReleaseMutex(MutexLock);
@@ -45,7 +45,7 @@ DWORD WINAPI thread_a(LPVOID param) {
 DWORD WINAPI thread_b(LPVOID param) {
 
 	UNREFERENCED_PARAMETER(param);
-	for (int i = 0; i < 3; i++) {
+	for (int i = 0; i < 4; i++) {
 		WaitForSingleObject(MutexLock, INFINITE);
 		cout << 'b' << flush;
 		ReleaseMutex(MutexLock);
@@ -57,7 +57,7 @@ DWORD WINAPI thread_b(LPVOID param) {
 
 DWORD WINAPI thread_c(LPVOID param) {
 	UNREFERENCED_PARAMETER(param);
-	for (int i = 0; i < 3; i++) {
+	for (int i = 0; i < 4; i++) {
 		WaitForSingleObject(MutexLock, INFINITE);
 		cout << 'c' << flush;
 		ReleaseMutex(MutexLock);
@@ -70,7 +70,7 @@ DWORD WINAPI thread_c(LPVOID param) {
 
 DWORD WINAPI thread_d(LPVOID param) {
 	UNREFERENCED_PARAMETER(param);
-	for (int i = 0; i < 3; i++) {
+	for (int i = 0; i < 4; i++) {
 		WaitForSingleObject(MutexLock, INFINITE);
 		cout << 'd' << flush;
 		ReleaseMutex(MutexLock);
@@ -82,7 +82,7 @@ DWORD WINAPI thread_d(LPVOID param) {
 
 DWORD WINAPI thread_e(LPVOID param) {
 	UNREFERENCED_PARAMETER(param);
-	for (int i = 0; i < 3; i++) {
+	for (int i = 0; i < 4; i++) {
 		WaitForSingleObject(MutexLock, INFINITE);
 		cout << 'e' << flush;
 		ReleaseMutex(MutexLock);
@@ -94,7 +94,7 @@ DWORD WINAPI thread_e(LPVOID param) {
 
 DWORD WINAPI thread_f(LPVOID param) {
 	UNREFERENCED_PARAMETER(param);
-	for (int i = 0; i < 3; i++) {
+	for (int i = 0; i < 4; i++) {
 		WaitForSingleObject(MutexLock, INFINITE);
 		cout << 'f' << flush;
 		ReleaseMutex(MutexLock);
@@ -109,7 +109,7 @@ DWORD WINAPI thread_f(LPVOID param) {
 DWORD WINAPI thread_g(LPVOID param) {
 	UNREFERENCED_PARAMETER(param);
 
-	for (int i = 0; i < 3; i++) {
+	for (int i = 0; i < 4; i++) {
 		WaitForSingleObject(MutexLock, INFINITE);
 		cout << 'g' << flush;
 		ReleaseMutex(MutexLock);
@@ -121,7 +121,7 @@ DWORD WINAPI thread_g(LPVOID param) {
 	WaitForSingleObject(threads[4], INFINITE);
 	WaitForSingleObject(threads[5], INFINITE);
 	
-	for (int i = 0; i < 3; i++) {
+	for (int i = 0; i < 4; i++) {
 		WaitForSingleObject(semIG, INFINITE);
 		WaitForSingleObject(MutexLock, INFINITE);
 		cout << 'g' << flush;
@@ -135,7 +135,7 @@ DWORD WINAPI thread_h(LPVOID param) {
 	UNREFERENCED_PARAMETER(param);
 
 
-	for (int i = 0; i <3; i++) {
+	for (int i = 0; i <4; i++) {
 		WaitForSingleObject(semGH, INFINITE);
 		WaitForSingleObject(MutexLock, INFINITE);
 		cout << 'h' << flush;
@@ -150,7 +150,7 @@ DWORD WINAPI thread_i(LPVOID param) {
 	UNREFERENCED_PARAMETER(param);
 	
 	 
-	for (int i = 0; i < 3; i++) {
+	for (int i = 0; i < 4; i++) {
 		WaitForSingleObject(semHI, INFINITE);
 		WaitForSingleObject(MutexLock, INFINITE);
 		cout << 'i' << flush;
@@ -168,7 +168,7 @@ DWORD WINAPI thread_i(LPVOID param) {
 
 DWORD WINAPI thread_k(LPVOID param) {
 	UNREFERENCED_PARAMETER(param);
-	for (int i = 0; i < 3; i++) {
+	for (int i = 0; i < 4; i++) {
 		WaitForSingleObject(MutexLock, INFINITE);
 		cout << 'k' << flush;
 		ReleaseMutex(MutexLock);
