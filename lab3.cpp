@@ -8,7 +8,7 @@ using namespace std;
 
 
 HANDLE MutexLock;
-HANDLE semStart;
+
 HANDLE threads[10];
 DWORD thread_id;
 
@@ -190,10 +190,7 @@ int lab3_init()
 		cout << "CreateMutex error " << GetLastError() << endl;
 		return 1;
 	}
-	semStart = CreateSemaphore(NULL, 1, 6, NULL);
-	if (semStart == NULL) {
-		cerr << "CreateSemaphore error: " << GetLastError() << '\n'; return 1;
-	}
+	
 	semIG = CreateSemaphore(NULL, 1, 6, NULL);
 	if (semIG == NULL) {
 		cerr << "CreateSemaphore error: " << GetLastError() << '\n'; return 1;
@@ -208,7 +205,7 @@ int lab3_init()
 	}
 
 
-	WaitForSingleObject(semStart, INFINITE);
+	
 
 	threads[0] = CreateThread(NULL, 0, thread_a, NULL, 0, &thread_id);
 	if (threads[0] == NULL) {
@@ -261,7 +258,7 @@ int lab3_init()
 		cerr << "CreateThread error: " << GetLastError() << '\n'; return 1;
 	}
 	WaitForMultipleObjects(10, threads, TRUE, INFINITE);
-	CloseHandle(semStart);
+	
 	CloseHandle(semIG);
 	CloseHandle(semHI);
 	CloseHandle(semGH);
@@ -274,8 +271,10 @@ int lab3_init()
 		CloseHandle(threads[i]);
 	}
 
+	cout << endl;
 
 	return 0;
+	
 
 }
 
