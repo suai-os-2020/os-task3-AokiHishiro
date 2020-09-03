@@ -271,7 +271,6 @@ int lab3_init()
 		CloseHandle(threads[i]);
 	}
 
-	cout << endl;
 
 	return 0;
 	
